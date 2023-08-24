@@ -1,0 +1,19 @@
+input:checked ~ .dot {
+  transform: translateX(100%);
+  background-color: #ffffff;
+}
+
+/* Toggle B */
+input:checked ~ .dot {
+  transform: translateX(100%);
+  background-color: #ffffff;
+}
+.css-1xfd9ny-MuiButtonBase-root-MuiTab-root {
+  padding: 0px !important;
+}
+.css-heg063-MuiTabs-flexContainer {
+  text-align: center !important;
+}
+.MuiTabs-flexContainer {
+  text-align: center !important;
+}

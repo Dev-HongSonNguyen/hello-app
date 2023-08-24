@@ -1,0 +1,6 @@
+export { default as IconZalo } from "./Zalo"
+export { default as IconGoogle } from "./Google"
+export { default as IconLine } from "./Line"
+export { default as IconFacebook } from "./Facebook"
+export { default as IconCamera } from "./Camera"
+export { default as IconBot } from "./Bot"

@@ -1,0 +1,9 @@
+{
+  "label": "Số điện thoại của bạn",
+  "placeholder": "Không bao gồm +84",
+  "validator": "Định dạng quốc tế hợp lệ +84912345678",
+  "otp": "Nhận OTP",
+  "or": "Hoặc",
+  "google": "Đăng nhập bằng Google",
+  "facebook": "Đăng nhập bằng Facebook"
+}
