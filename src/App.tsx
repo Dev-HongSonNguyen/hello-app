@@ -1,7 +1,8 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Register from "./pages/Register";
 import RegisterCompanyVi01 from "./pages/RegisterCompanyVi01";
-import RegisterCompanyVi02 from "./pages/RegisterCompanyVi02";
+import RegisterCompanyVi02Notyet from "./pages/RegisterCompanyVi02Notyet";
+import RegisterCompanyVi02Already from "./pages/RegisterCompanyVi02Already";
 import RegisterCompanyVi12 from "./pages/RegisterCompanyVi12";
 import RegisterCompanyVi05 from "./pages/RegisterCompanyVi05";
 import RegisterCompanyVi06 from "./pages/RegisterCompanyVi06";
@@ -22,8 +23,12 @@ const router = createBrowserRouter([
     element: <RegisterCompanyVi01 />,
   },
   {
-    path: "/vi02",
-    element: <RegisterCompanyVi02 />,
+    path: "/vi02notyet",
+    element: <RegisterCompanyVi02Notyet />,
+  },
+  {
+    path: "/vi02already",
+    element: <RegisterCompanyVi02Already />,
   },
   {
     path: "/vi12",
