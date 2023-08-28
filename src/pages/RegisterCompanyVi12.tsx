@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Heading from "../components/Heading";
 import Line from "../components/Line";
 import Extract from "../components/Extract";
@@ -32,6 +32,24 @@ const province = [
   "Kyoto",
 ];
 const RegisterCompanyVi12 = () => {
+  const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
+  console.log(selectedOptions);
+  const handleOptionClick = (option: string) => {
+    if (selectedOptions.length >= 1) {
+      alert("Bạn chỉ được lựa chọn duy nhất 1 trường");
+    } else {
+      setSelectedOptions((prevSelectedOptions) => [
+        ...prevSelectedOptions,
+        option,
+      ]);
+    }
+  };
+  const handleRemoveOption = (option: string) => {
+    setSelectedOptions((prevSelectedOptions) =>
+      prevSelectedOptions.filter((selectedOption) => selectedOption !== option)
+    );
+  };
+  // Trạng thái lưu thông tin mục được chọn
   return (
     <div className="pb-5 mx-4 max-w-[1280px] md:mx-auto">
       {/* image */}
@@ -47,15 +65,27 @@ const RegisterCompanyVi12 = () => {
       </div>
       <div>
         <div className="province-elem flex gap-2 flex-wrap py-4">
-          {province.map((item: string) => {
-            return (
-              <div className="item-province">
-                <span className="bg-[#F1F1F5] rounded-[5px] py-2 px-4 inline-block text-[15px] text-[#000]">
-                  {item}
-                </span>
-              </div>
-            );
-          })}
+          {province.map((item: string) => (
+            <div className="item-country" key={item}>
+              <button
+                type="button"
+                className={`${
+                  selectedOptions.includes(item)
+                    ? "border border-[#0d8dc8] text-[#0d8dc8]"
+                    : "bg-[#F1F1F5] text-[#000]"
+                } rounded-[5px] py-2 px-4 inline-block text-[15px]`}
+                onClick={() => {
+                  if (selectedOptions.includes(item)) {
+                    handleRemoveOption(item);
+                  } else {
+                    handleOptionClick(item);
+                  }
+                }}
+              >
+                {item}
+              </button>
+            </div>
+          ))}
         </div>
         <div className="flex gap-4 items-center">
           <button className="block border border-gray-[#E3E3E3] p-[15px] rounded-[30px] w-full text-[16px]">

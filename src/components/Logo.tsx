@@ -11,13 +11,13 @@ const Logo = () => {
       <img
         src="https://res.cloudinary.com/dwzh9i6xf/image/upload/v1692758655/company/Frame_lirx6j.png"
         alt=""
-        className="pt-[20px] pb-[30px]"
+        className="pt-[30px] pb-[30px]"
       />
-      <div className="absolute top-[20px] right-[6px]">
+      <div className="absolute top-[20px] right-[-10px]">
         <select
           name=""
           id=""
-          className="outline-none"
+          className="outline-none border-none"
           onChange={handleChangeLanguage}
         >
           <option className="" value="vi">

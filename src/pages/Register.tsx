@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Logo from "../components/Logo";
 import { useTranslation } from "react-i18next";
 const Register = () => {
@@ -10,11 +9,11 @@ const Register = () => {
         <label htmlFor="" className="font-bold pb-2 block text-[14px]">
           {t("label")}
         </label>
-        <div className="flex item-center">
+        <div className="flex item-center justify-center">
           <select
             name=""
             id=""
-            className="bg-gray-300 rounded-l-md outline-none"
+            className="bg-gray-300 rounded-l-md outline-none border-none"
           >
             <option value="">+84</option>
             <option value="">+34</option>
