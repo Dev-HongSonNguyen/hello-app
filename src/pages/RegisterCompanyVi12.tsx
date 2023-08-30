@@ -3,6 +3,7 @@ import Heading from "../components/Heading";
 import Line from "../components/Line";
 import Extract from "../components/Extract";
 import Logo from "../components/Logo";
+import { useNavigate } from "react-router-dom";
 const province = [
   "Hokkaido",
   "Aomori",
@@ -32,7 +33,9 @@ const province = [
   "Kyoto",
 ];
 const RegisterCompanyVi12 = () => {
+  const navigate = useNavigate();
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
+  const [data, setData] = useState<string[]>([]);
   console.log(selectedOptions);
   const handleOptionClick = (option: string) => {
     if (selectedOptions.length >= 1) {
@@ -49,7 +52,16 @@ const RegisterCompanyVi12 = () => {
       prevSelectedOptions.filter((selectedOption) => selectedOption !== option)
     );
   };
-  // Trạng thái lưu thông tin mục được chọn
+  const onHandleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setData(selectedOptions);
+    console.log("data2", data);
+    // navigate("/vi05");
+  };
+  const onHandlePrevious = () => {
+    navigate(-1);
+  };
+
   return (
     <div className="pb-5 mx-4 max-w-[1280px] md:mx-auto">
       {/* image */}
@@ -63,7 +75,7 @@ const RegisterCompanyVi12 = () => {
           thành cụ thể.
         </Extract>
       </div>
-      <div>
+      <form onSubmit={onHandleSubmit}>
         <div className="province-elem flex gap-2 flex-wrap py-4">
           {province.map((item: string) => (
             <div className="item-country" key={item}>
@@ -88,7 +100,10 @@ const RegisterCompanyVi12 = () => {
           ))}
         </div>
         <div className="flex gap-4 items-center">
-          <button className="block border border-gray-[#E3E3E3] p-[15px] rounded-[30px] w-full text-[16px]">
+          <button
+            onClick={onHandlePrevious}
+            className="block border border-gray-[#E3E3E3] p-[15px] rounded-[30px] w-full text-[16px]"
+          >
             Quay lại
           </button>
           <button className="block border border-[#0d8dc8] p-[15px] rounded-[30px] w-full text-[16px] bg-[#0d8dc8] text-white">
@@ -111,7 +126,7 @@ const RegisterCompanyVi12 = () => {
             />
           </div>
         </div>
-      </div>
+      </form>
     </div>
   );
 };
