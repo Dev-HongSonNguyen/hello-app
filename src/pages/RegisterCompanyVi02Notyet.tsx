@@ -21,19 +21,28 @@ const RegisterCompanyVi02Notyet = () => {
   const { t } = useTranslation("vi02Notyet");
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const handleOptionClick = (option: string) => {
-    if (selectedOptions.length >= 3) {
-      alert("Bạn chỉ được lựa chọn 3 trường");
-    } else {
+    if (selectedOptions.includes(option)) {
+      setSelectedOptions((prevSelectedOptions) =>
+        prevSelectedOptions.filter(
+          (selectedOption) => selectedOption !== option
+        )
+      );
+    } else if (selectedOptions.length < 3) {
       setSelectedOptions((prevSelectedOptions) => [
         ...prevSelectedOptions,
         option,
       ]);
+    } else {
+      alert("Bạn chỉ được lựa chọn 3 trường");
     }
   };
   const handleRemoveOption = (option: string) => {
     setSelectedOptions((prevSelectedOptions) =>
       prevSelectedOptions.filter((selectedOption) => selectedOption !== option)
     );
+  };
+  const onHandelSubmit = () => {
+    navigate("/vi12");
   };
   const onHandelPrevious = () => {
     navigate("/vi01");
@@ -46,7 +55,7 @@ const RegisterCompanyVi02Notyet = () => {
         <Line></Line>
         <Extract>{t("extract")}</Extract>
       </div>
-      <form>
+      <form onSubmit={onHandelSubmit}>
         <div className="country-elem flex gap-2 flex-wrap py-4">
           {country.map((item: string) => (
             <div className="item-country" key={item}>
